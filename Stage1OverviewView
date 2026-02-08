@@ -1,0 +1,34 @@
+import SwiftUI
+
+struct Stage1OverviewView: View {
+    let initiative: Initiative
+
+    var body: some View {
+        VStack(spacing: 24) {
+
+            Text("Stage 1 — Development Planning")
+                .font(.title2)
+                .bold()
+
+            Text("This stage determines whether an initiative is ready to responsibly request funding, resources, and executive commitment.")
+                .foregroundColor(.secondary)
+
+            VStack(spacing: 12) {
+                ReadinessPill(title: "Problem & Strategy")
+                ReadinessPill(title: "Alternatives")
+                ReadinessPill(title: "Architecture")
+                ReadinessPill(title: "Operational Reality")
+                ReadinessPill(title: "Sustainment Awareness")
+            }
+
+            NavigationLink("Begin Assessment") {
+                ProblemStrategyView()
+            }
+            .buttonStyle(.borderedProminent)
+
+            Spacer()
+        }
+        .padding()
+        .navigationTitle(initiative.name)
+    }
+}
