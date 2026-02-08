@@ -1,0 +1,23 @@
+import SwiftUI
+
+struct ExecutiveSummaryView: View {
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("Executive Summary")
+                .font(.title)
+                .bold()
+            
+            Text("""
+            This is the auto-generated Stage 1 summary.
+            Operational and sustainment considerations should mature before Stage 2.
+            """)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding()
+            
+            Spacer()
+        }
+        .padding()
+        .navigationTitle("Executive Summary")
+    }
+}
