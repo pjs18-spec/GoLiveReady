@@ -1,0 +1,16 @@
+import SwiftUI
+
+struct ReadinessPill: View {
+    let title: String
+
+    var body: some View {
+        HStack {
+            Text(title)
+            Spacer()
+            Image(systemName: "chevron.right")
+        }
+        .padding()
+        .background(Color(.systemGray6))
+        .cornerRadius(12)
+    }
+}
