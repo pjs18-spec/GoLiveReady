@@ -1,0 +1,60 @@
+import SwiftUI
+
+struct AddInitiativeView: View {
+    @Binding var initiatives: [Initiative]
+    @Environment(\.dismiss) var dismiss
+
+    @State private var name = ""
+    @State private var programType = ""
+    @State private var stage: ReadinessStage = .stage1
+    @State private var readinessStatus: ReadinessStatus = .notReady
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section(header: Text("Initiative Details")) {
+                    TextField("Name", text: $name)
+                    TextField("Program Type", text: $programType)
+                    
+                    Picker("Stage", selection: $stage) {
+                        Text("Development Planning").tag(ReadinessStage.stage1)
+                        // Add more stages later
+                    }
+                    
+                    Picker("Readiness Status", selection: $readinessStatus) {
+                        Text("Not Ready").tag(ReadinessStatus.notReady)
+                        Text("Conditional").tag(ReadinessStatus.conditional)
+                        Text("Ready").tag(ReadinessStatus.ready)
+                    }
+                }
+            }
+            .navigationTitle("New Initiative")
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Save") {
+                        let newInitiative = Initiative(
+                            name: name,
+                            programType: programType,
+                            stage: stage,
+                            readinessStatus: readinessStatus
+                        )
+                        initiatives.append(newInitiative)
+                        dismiss()
+                    }
+                }
+
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct AddInitiativeView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddInitiativeView(initiatives: .constant([]))
+    }
+}
