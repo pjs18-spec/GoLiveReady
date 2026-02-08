@@ -1,0 +1,28 @@
+import SwiftUI
+
+struct Stage1ResultView: View {
+    @ObservedObject var viewModel: Stage1ViewModel
+
+    var body: some View {
+        VStack(spacing: 20) {
+
+            Text("Stage 1 Readiness")
+                .font(.title)
+                .bold()
+
+            Text(viewModel.readinessStatus.rawValue)
+                .font(.headline)
+                .foregroundColor(.blue)
+
+            Text("Operational and sustainment considerations should mature before entering Stage 2.")
+                .foregroundColor(.secondary)
+
+            NavigationLink("Executive Summary") {
+                ExecutiveSummaryView()
+            }
+
+            Spacer()
+        }
+        .padding()
+    }
+}
