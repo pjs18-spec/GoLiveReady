@@ -1,0 +1,30 @@
+import SwiftUI
+
+struct SustainmentView: View {
+    @StateObject private var viewModel = Stage1ViewModel()
+
+    var body: some View {
+        VStack(spacing: 24) {
+
+            Text("Transition to Sustainment")
+                .font(.title2)
+                .bold()
+
+            Toggle("Operations Lead identified", isOn: $viewModel.opsLeadIdentified)
+            Toggle("Operational impact of core alternatives reviewed", isOn: $viewModel.opsImpactReviewed)
+
+            Text("You are not solving sustainment yet — you are deciding whether it matters.")
+                .font(.caption)
+                .foregroundColor(.secondary)
+
+            NavigationLink("View Readiness Result") {
+                Stage1ResultView(viewModel: viewModel)
+            }
+            .buttonStyle(.borderedProminent)
+
+            Spacer()
+        }
+        .padding()
+        .navigationTitle("Sustainment")
+    }
+}
