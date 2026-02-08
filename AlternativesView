@@ -1,0 +1,24 @@
+import SwiftUI
+
+struct AlternativesView: View {
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("Alternatives Assessment")
+                .font(.title2)
+                .bold()
+            
+            Text("Review build, buy, non-capital, process/policy, and do nothing options.")
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding()
+            
+            NavigationLink("Next") {
+                ArchitectureView()
+            }
+
+            Spacer()
+        }
+        .padding()
+        .navigationTitle("Alternatives")
+    }
+}
