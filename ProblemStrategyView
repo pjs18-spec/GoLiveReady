@@ -1,0 +1,24 @@
+import SwiftUI
+
+struct ProblemStrategyView: View {
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("Problem & Strategy Assessment")
+                .font(.title2)
+                .bold()
+            
+            Text("This is where you capture problem clarity, strategy alignment, and 'do nothing' options.")
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding()
+            
+            NavigationLink("Next") {
+                AlternativesView()
+            }
+
+            Spacer()
+        }
+        .padding()
+        .navigationTitle("Problem & Strategy")
+    }
+}
