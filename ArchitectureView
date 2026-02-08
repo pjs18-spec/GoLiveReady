@@ -1,0 +1,24 @@
+import SwiftUI
+
+struct ArchitectureView: View {
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("Architecture Assessment")
+                .font(.title2)
+                .bold()
+            
+            Text("Ensure enterprise architecture and platform constraints are acknowledged.")
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding()
+            
+            NavigationLink("Next") {
+                OperationalRealityView()
+            }
+
+            Spacer()
+        }
+        .padding()
+        .navigationTitle("Architecture")
+    }
+}
