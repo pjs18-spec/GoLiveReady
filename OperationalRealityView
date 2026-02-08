@@ -1,0 +1,24 @@
+import SwiftUI
+
+struct OperationalRealityView: View {
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("Operational Reality")
+                .font(.title2)
+                .bold()
+            
+            Text("Capture operations clusters, ownership, and readiness signals.")
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding()
+            
+            NavigationLink("Next") {
+                StakeholdersView()
+            }
+
+            Spacer()
+        }
+        .padding()
+        .navigationTitle("Operational Reality")
+    }
+}
