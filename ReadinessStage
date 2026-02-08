@@ -1,0 +1,8 @@
+import Foundation
+
+enum ReadinessStage: String {
+    case stage1 = "Development Planning"
+    // Future stages can be added:
+    // case stage2 = "Ready to Deploy"
+    // case stage3 = "Ready to Sustain"
+}
