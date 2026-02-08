@@ -1,0 +1,24 @@
+import SwiftUI
+
+struct StakeholdersView: View {
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("Stakeholder Engagement")
+                .font(.title2)
+                .bold()
+            
+            Text("Identify stakeholders by impact: leadership, people, apps, technical, IT operations.")
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding()
+            
+            NavigationLink("Next") {
+                SustainmentView()
+            }
+
+            Spacer()
+        }
+        .padding()
+        .navigationTitle("Stakeholders")
+    }
+}
