@@ -1,0 +1,9 @@
+import Foundation
+
+struct Initiative: Identifiable {
+    let id = UUID()
+    let name: String
+    let programType: String
+    let stage: ReadinessStage
+    let readinessStatus: ReadinessStatus
+}
