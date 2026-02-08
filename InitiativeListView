@@ -1,0 +1,56 @@
+import SwiftUI
+
+struct InitiativeListView: View {
+
+    @State private var initiatives: [Initiative] = [
+        Initiative(
+            name: "New Project",
+            programType: "Modernization",
+            stage: .stage1,
+            readinessStatus: .conditional
+        )
+    ]
+    
+    @State private var showingAdd = false
+
+    var body: some View {
+        NavigationStack {
+            List(initiatives, id: \.id) { initiative in
+                NavigationLink {
+                    Stage1OverviewView(initiative: initiative)
+                } label: {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(initiative.name)
+                            .font(.headline)
+
+                        Text(initiative.programType)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+
+                        Text(initiative.readinessStatus.rawValue)
+                            .font(.caption)
+                            .foregroundColor(.blue)
+                    }
+                    .padding(.vertical, 4)
+                }
+            }
+            .navigationTitle("GoLive Ready")
+            .toolbar {
+                Button(action: {
+                    showingAdd.toggle()
+                }) {
+                    Image(systemName: "plus")
+                }
+            }
+            .sheet(isPresented: $showingAdd) {
+                AddInitiativeView(initiatives: $initiatives)
+            }
+        }
+    }
+}
+
+struct InitiativeListView_Previews: PreviewProvider {
+    static var previews: some View {
+        InitiativeListView()
+    }
+}
