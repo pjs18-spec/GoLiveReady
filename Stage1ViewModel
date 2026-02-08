@@ -1,0 +1,19 @@
+import Foundation
+import SwiftUI
+import Combine   // ✅ Add this
+
+class Stage1ViewModel: ObservableObject {
+    @Published var problemClarity: Int = 0
+    @Published var alternativesReviewed: Bool = false
+    @Published var architectureConsulted: Bool = false
+    @Published var opsLeadIdentified: Bool = false
+    @Published var opsImpactReviewed: Bool = false
+
+    var readinessStatus: ReadinessStatus {
+        if opsLeadIdentified && opsImpactReviewed {
+            return .conditional
+        } else {
+            return .notReady
+        }
+    }
+}
