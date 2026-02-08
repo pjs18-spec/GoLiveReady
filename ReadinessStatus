@@ -1,0 +1,7 @@
+import Foundation
+
+enum ReadinessStatus: String {
+    case notReady = "Not Ready"
+    case conditional = "Conditionally Ready"
+    case ready = "Ready to Advance"
+}
